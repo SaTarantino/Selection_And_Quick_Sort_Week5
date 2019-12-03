@@ -5,13 +5,14 @@ import arrayGenerator.CharacterArrayGenerator;
 import timer.Timer;
 
 /**
- * Time character in Selection Sort
+ * Time character in Quick Sort
  *
  * author Salvatore Tarantino, u1860830
  * u1860830@hud.ac.uk
  */
 
-public class CharacterSelectionSortTimer extends SelectionSortTimer<Character>{
+public class CharacterQuickSortTimer extends QuickSortTimer<Character> {
+
     @Override
     public Timer getTimer(int size) {
         ArrayGenerator<Character> generator = new CharacterArrayGenerator();
@@ -20,7 +21,7 @@ public class CharacterSelectionSortTimer extends SelectionSortTimer<Character>{
     }
 
     public static void main(String[] args) {
-        SelectionSortTimer timer = new CharacterSelectionSortTimer();
+        QuickSortTimer timer = new CharacterQuickSortTimer();
         timer.timingSequence();
     }
 }

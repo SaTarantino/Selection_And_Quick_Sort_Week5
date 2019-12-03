@@ -3,13 +3,13 @@ package arraySorter;
 import timer.Timer;
 
 /**
- * The implementation for the Selection Sort timer
+ * The implementation for the Quick Sort timer
  *
  * author Salvatore Tarantino, u1860830
  * u1860830@hud.ac.uk
  */
 
-public abstract class SelectionSortTimer<T extends Comparable<? super T>> extends SelectionSort<T> implements Timer {
+public abstract class QuickSortTimer<T extends Comparable<? super T>> extends QuickSort<T> implements Timer {
 
     private T[] array;
 
