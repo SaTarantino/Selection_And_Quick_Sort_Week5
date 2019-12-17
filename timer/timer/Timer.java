@@ -60,6 +60,11 @@ public interface Timer {
         timedMethod();
         long endTime = System.nanoTime();
         return Duration.ofNanos(endTime - startTime);
+        //return time().toString().substring(2).replaceAll("(\\d[HMS])(?!$)", "$1 ").toLowerCase();
+    }
+
+    default String formatted() {
+        return time().toString().substring(2).replaceAll("(\\d[HMS])(?!$)", "$1 ").toLowerCase();
     }
 
     /**
@@ -93,14 +98,17 @@ public interface Timer {
                     time = time.plus(timer.time());
                 }
                 time = time.dividedBy(getRunSetSize());
-                String timeString = time.toString().substring(2).replaceFirst("S", " seconds");
-                System.out.println(getTimer(0).getClass() + " took " + timeString + " for a task of size " + formatter.format(counter * power));
+                //String timeString = time.toString().substring(2).replaceFirst("S", " seconds");
+                //System.out.println(counter*power + " " + formatted());
+                //System.out.println(time);
+                //System.out.println(getTimer(0).getClass() + " took " + timeString + " for a task of size " + formatter.format(counter * power));
+                System.out.println(formatter.format(counter*power) + "\t" + time.toString().substring(2).replaceFirst("S",""));
                 if (counter * power >= getMaximumTaskSize()) {
-                    System.out.println("Maximum task size, " + getMaximumTaskSize() + ", reached. Ending timing sequence.");
+                    //System.out.println("Maximum task size, " + getMaximumTaskSize() + ", reached. Ending timing sequence.");
                     return;
                 }
                 if (time.getSeconds() >= getMaximumRuntime()) {
-                    System.out.println("Time limit of " + getMaximumRuntime() + " seconds reached.  Ending timing sequence.");
+                    //System.out.println("Time limit of " + getMaximumRuntime() + " seconds reached.  Ending timing sequence.");
                     return;
                 }
             }
